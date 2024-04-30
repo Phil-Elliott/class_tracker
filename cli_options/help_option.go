@@ -1,8 +1,11 @@
 package cli_options
 
-import "fmt"
+import (
+	"database/sql"
+	"fmt"
+)
 
-func helpCallback() error {
+func helpCallback(db *sql.DB) error {
 	fmt.Println("Please see the list of options below.")
 	commands := GetOptions()
 	for _, command := range commands {
